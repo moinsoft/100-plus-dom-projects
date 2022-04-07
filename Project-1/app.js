@@ -34,3 +34,5 @@ function generateRGBColor() {
 
 // Step 4 - Handle the click event.
 //  - Done on main function
+
+// Step 5 - Finally Done 1st Project
