@@ -4,6 +4,13 @@
 */
 
 // Step 1 - Create onload handler.
+window.onload = () => {
+  main();
+};
+
+function main() {
+  
+};
 
 // step 2 - Random color generator function.
 
