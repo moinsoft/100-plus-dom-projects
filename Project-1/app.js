@@ -12,7 +12,16 @@ function main() {
   
 };
 
-// step 2 - Random color generator function.
+// step 2 - Create random color generator function.
+function generateRGBColor() {
+  // rgb(0,0,0), rgb(255,255,255)
+
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+
+  return `rgb(${red}, ${green}, ${blue})`
+}
 
 // Step 3 - Collect all necessary references.
 
