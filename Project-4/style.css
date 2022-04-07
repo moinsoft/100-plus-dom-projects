@@ -1,0 +1,73 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body{
+  font-family: monospace, Arial, sans-serif;
+  font-size: 1rem;
+  background-color: #292768;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background-color: #13124C;
+  border: 5px dotted #df9c20;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  color:#df9c20;
+  text-align: center;
+}
+
+
+#change-btn,#output,#copy-btn{
+  font-size: 1.5rem;
+  color: #df9c20;
+  border: 1px solid #df9c20;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 2rem;
+}
+
+#change-btn,#copy-btn{
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+
+#change-btn{
+  background-color: #13124C;
+  transition: 0.5s linear;
+}
+
+#output{
+  padding: 1rem;
+  background-color: #000000;
+}
+
+#output,#copy-btn{
+  text-align: center;
+  -webkit-text-stroke-width: .7px;
+  -webkit-text-stroke-color: #000000;
+}
+
+#change-btn:hover{
+  background-color: #df9c20;
+}
+
+#change-btn:hover,#copy-btn:hover{
+  color: #13124C;
+}
+
+
