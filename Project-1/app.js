@@ -9,7 +9,8 @@ window.onload = () => {
 };
 
 function main() {
-  
+  const root = document.getElementById('root');
+  const changeBtn = document.getElementById('change-btn');
 };
 
 // step 2 - Create random color generator function.
@@ -24,5 +25,6 @@ function generateRGBColor() {
 }
 
 // Step 3 - Collect all necessary references.
+//  - Done on main function
 
 // Step 4 - Handle the click event.
