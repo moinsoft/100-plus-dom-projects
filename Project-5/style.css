@@ -1,0 +1,118 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body{
+  font-family: monospace, Arial, sans-serif;
+  font-size: 1rem;
+  background-color: #292768;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background-color: #13124C;
+  border: 5px dotted #df9c20;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  color:#df9c20;
+  text-align: center;
+}
+
+
+#change-btn,#output,#copy-btn{
+  font-size: 1.5rem;
+  color: #df9c20;
+  border: 1px solid #df9c20;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 2rem;
+}
+
+#change-btn,#copy-btn{
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+
+#change-btn{
+  background-color: #13124C;
+  transition: 0.5s linear;
+}
+
+#output{
+  padding: 1rem;
+  background-color: #000000;
+}
+
+#output,#copy-btn{
+  text-align: center;
+  -webkit-text-stroke-width: .7px;
+  -webkit-text-stroke-color: #000000;
+}
+
+#change-btn:hover{
+  background-color: #df9c20;
+}
+
+#change-btn:hover,#copy-btn:hover{
+  color: #13124C;
+}
+
+.toast-message{
+  position: fixed;
+  z-index: 9999;
+  top: 2rem;
+  right: 2rem;
+  background-color: #28A745;
+  color: #000000;
+  font-weight: bold;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toast-message-slide-in{
+  animation: toast-animation-in 0.5s ease-in;
+}
+
+.toast-message-slide-out{
+  animation: toast-animation-out 0.5s ease-in;
+}
+
+@keyframes toast-animation-in{
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-animation-out{
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+
