@@ -183,3 +183,6 @@ function isHexValid(color) {
 
 
 // Step 13 - Update color code to display rgb colors.
+
+
+// Step 14 - Finally Done 7th Project.
