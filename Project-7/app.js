@@ -62,19 +62,6 @@ function main() {
 };
 
 
-// step 2 - Create random color generator function.
-function generateHexColor() {
-  // #000000, #ffffff
-  // 255, 255, 255 -> ff, ff, ff
-  // 255, 255, 255 -> #ffffff
-  
-  const red = Math.floor(Math.random() * 255);
-  const green = Math.floor(Math.random() * 255);
-  const blue = Math.floor(Math.random() * 255);
-
-  return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
-}
-
 
 // function 1 - generate three random decimal number for red green and blue
 // return as a object
@@ -89,6 +76,26 @@ function generateColorDecimal() {
     blue
   }
 
+}
+
+
+// function 2 - generate hex color code.
+function generateHexColor() {
+  
+  const { red, green, blue } = generateColorDecimal();
+
+  // const twoCodeRed = red <= 9 ? `0${red}` : red.toString(16);
+  // const twoCodeGreen = green <= 9 ? `0${green}` : green.toString(16);
+  // const twoCodeBlue = blue <= 9 ? `0${blue}` : blue.toString(16);
+
+  const getTwoCode = (value) => {
+    const hex = value.toString(16);
+    return hex.length === 1 ? `0${hex}` : hex;
+  }
+
+  // return `#${twoCodeRed}${twoCodeGreen}${twoCodeBlue}`.toUpperCase();
+
+  return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase();
 }
 
 
@@ -119,6 +126,9 @@ function isHexValid(color) {
   if (color.length !== 6) return false;
   return /^[0-9A-Fa-f]{6}$/i.test(color)
 }
+
+// step 2 - Create random color generator function.
+//  - Done on generateHexColor function.
 
 
 // Step 3 - Collect all necessary references.
