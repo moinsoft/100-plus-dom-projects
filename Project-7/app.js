@@ -24,15 +24,22 @@ window.onload = () => {
 function main() {
   const root = document.getElementById('root');
   const changeBtn = document.getElementById('change-btn');
-  const output = document.getElementById('outputHex');
-  const copyBtn = document.getElementById('copy-btn');
+  const outputHex = document.getElementById('outputHex');
+  const outputRGB = document.getElementById('outputRGB');
+  const copyBtnHex = document.getElementById('copy-btn-hex');
+  const copyBtnRGB = document.getElementById('copy-btn-rgb');
 
   changeBtn.addEventListener('click', function () {
-    const bgColor = generateHexColor();
-    root.style.backgroundColor = bgColor;
-    output.style.backgroundColor = bgColor;
-    copyBtn.style.backgroundColor = bgColor;
-    output.value = bgColor.substring(1);
+    const color = generateColorDecimal();
+    const hex = generateHexColor(color);
+    const rgb = generateRGBColor(color);
+    root.style.backgroundColor = hex;
+    outputHex.style.backgroundColor = hex;
+    outputRGB.style.backgroundColor = hex;
+    copyBtnHex.style.backgroundColor = hex;
+    copyBtnRGB.style.backgroundColor = hex;
+    outputHex.value = hex.substring(1);
+    outputRGB.value = rgb;
   })
 
   copyBtn.addEventListener('click', function () {
@@ -80,9 +87,9 @@ function generateColorDecimal() {
 
 
 // function 2 - generate hex color code.
-function generateHexColor() {
+function generateHexColor({ red, green, blue }) {
   
-  const { red, green, blue } = generateColorDecimal();
+  // const { red, green, blue } = generateColorDecimal();
 
   // const twoCodeRed = red <= 9 ? `0${red}` : red.toString(16);
   // const twoCodeGreen = green <= 9 ? `0${green}` : green.toString(16);
@@ -97,6 +104,17 @@ function generateHexColor() {
 
   return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase();
 }
+
+
+// function 3 - generate rgb color code.
+function generateRGBColor({ red, green, blue }) {
+
+  // const { red, green, blue } = generateColorDecimal();
+
+  return `rgb(${red}, ${green}, ${blue})`
+
+}
+
 
 
 function generateToastMessage(msg) {

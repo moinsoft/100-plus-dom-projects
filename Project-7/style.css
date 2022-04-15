@@ -32,7 +32,7 @@ h1{
 
 
 
-#change-btn,#outputHex,#outputRGB,#copy-btn,.input-icon,.input-label{
+#change-btn,#outputHex,#outputRGB,#copy-btn-hex,#copy-btn-rgb,.input-icon,.input-label{
   font-size: 1.5rem;
   color: #df9c20;
   border: 1px solid #df9c20;
@@ -49,7 +49,7 @@ h1{
   letter-spacing: 0;
 }
 
-#change-btn,#copy-btn{
+#change-btn,#copy-btn-hex,#copy-btn-rgb{
   padding: 1rem 3rem;
   cursor: pointer;
 }
@@ -85,7 +85,7 @@ h1{
   padding: 1rem;
 }
 
-#outputHex,#outputRGB,#copy-btn{
+#outputHex,#outputRGB,#copy-btn-hex,#copy-btn-rgb{
   -webkit-text-stroke-width: .7px;
   -webkit-text-stroke-color: #000000;
   background-color: #000000;
@@ -96,7 +96,7 @@ h1{
   color: #292768;
 }
 
-#copy-btn:hover{
+#copy-btn-hex:hover,#copy-btn-rgb:hover{
   color: #ffffff;
 }
 
