@@ -56,12 +56,29 @@ function main() {
     }
   })
 
+
+  copyBtnRGB.addEventListener('click', function () {
+    navigator.clipboard.writeText(`#${copyBtnRGB.value}`);
+
+    if (div !== null) {
+      div.remove();
+      div = null;
+    }
+
+    if (isHexValid(output.value)) {
+      generateToastMessage(`rgb(${copyBtnRGB.value}) copied`);
+    } else {
+      alert('Invalid Color Code.')
+    }
+  })
+
   output.addEventListener('keyup', function (e) {
     const color = e.target.value;
     if (color) {
       output.value = color.toUpperCase();
       if (isHexValid(color)) {
         root.style.backgroundColor = `#${color}`;
+        outputRGB.value = hexToRGB(color);
       }
     }
   })
