@@ -220,3 +220,6 @@ function isHexValid(color) {
 
 // Step 16 - Implement copy function.
 
+
+// Step 17 - Finally Done 8th Project.
+
