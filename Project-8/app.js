@@ -58,7 +58,7 @@ function main() {
 
 
   copyBtnRGB.addEventListener('click', function () {
-    navigator.clipboard.writeText(`#${copyBtnRGB.value}`);
+    navigator.clipboard.writeText(`#${outputRGB.value}`);
 
     if (div !== null) {
       div.remove();
@@ -66,7 +66,7 @@ function main() {
     }
 
     if (isHexValid(output.value)) {
-      generateToastMessage(`rgb(${copyBtnRGB.value}) copied`);
+      generateToastMessage(`${outputRGB.value} copied`);
     } else {
       alert('Invalid Color Code.')
     }
