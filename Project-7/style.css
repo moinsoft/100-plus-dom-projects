@@ -31,8 +31,7 @@ h1{
 }
 
 
-
-#change-btn,#outputHex,#outputRGB,#copy-btn-hex,#copy-btn-rgb,.input-icon,.input-label{
+#change-btn,#output,#outputRGB,#copy-btn,#copy-btn-RGB,.input-icon,.input-label{
   font-size: 1.5rem;
   color: #df9c20;
   border: 1px solid #df9c20;
@@ -49,7 +48,7 @@ h1{
   letter-spacing: 0;
 }
 
-#change-btn,#copy-btn-hex,#copy-btn-rgb{
+#change-btn,#copy-btn,#copy-btn-RGB{
   padding: 1rem 3rem;
   cursor: pointer;
 }
@@ -75,7 +74,7 @@ h1{
   border-bottom-right-radius: 0;
 }
 
-#outputHex{
+#output{
   padding: 1rem;
   margin-left: 2.4rem;
 }
@@ -85,7 +84,7 @@ h1{
   padding: 1rem;
 }
 
-#outputHex,#outputRGB,#copy-btn-hex,#copy-btn-rgb{
+#output,#outputRGB,#copy-btn,#copy-btn-RGB{
   -webkit-text-stroke-width: .7px;
   -webkit-text-stroke-color: #000000;
   background-color: #000000;
@@ -96,7 +95,7 @@ h1{
   color: #292768;
 }
 
-#copy-btn-hex:hover,#copy-btn-rgb:hover{
+#copy-btn:hover,#copy-btn-RGB:hover{
   color: #ffffff;
 }
 

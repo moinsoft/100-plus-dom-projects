@@ -10,7 +10,6 @@
  * - User can also copy the rgb color code.
 */
 
-
 // Globals
 
 let div = null;
@@ -24,21 +23,21 @@ window.onload = () => {
 function main() {
   const root = document.getElementById('root');
   const changeBtn = document.getElementById('change-btn');
-  const outputHex = document.getElementById('outputHex');
+  const output = document.getElementById('output');
   const outputRGB = document.getElementById('outputRGB');
-  const copyBtnHex = document.getElementById('copy-btn-hex');
-  const copyBtnRGB = document.getElementById('copy-btn-rgb');
+  const copyBtn = document.getElementById('copy-btn');
+  const copyBtnRGB = document.getElementById('copy-btn-RGB');
 
   changeBtn.addEventListener('click', function () {
     const color = generateColorDecimal();
     const hex = generateHexColor(color);
     const rgb = generateRGBColor(color);
     root.style.backgroundColor = hex;
-    outputHex.style.backgroundColor = hex;
+    output.style.backgroundColor = hex;
     outputRGB.style.backgroundColor = hex;
-    copyBtnHex.style.backgroundColor = hex;
+    copyBtn.style.backgroundColor = hex;
     copyBtnRGB.style.backgroundColor = hex;
-    outputHex.value = hex.substring(1);
+    output.value = hex.substring(1);
     outputRGB.value = rgb;
   })
 
@@ -67,7 +66,6 @@ function main() {
     }
   })
 };
-
 
 
 // function 1 - generate three random decimal number for red green and blue
@@ -114,7 +112,6 @@ function generateRGBColor({ red, green, blue }) {
   return `rgb(${red}, ${green}, ${blue})`
 
 }
-
 
 
 function generateToastMessage(msg) {
