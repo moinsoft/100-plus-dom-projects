@@ -18,15 +18,12 @@ window.onload = () => {
 function main() {
 
   const generateRandomColorBtn = document.getElementById('generate-random-color');
+  const colorModeHexInput = document.getElementById('input-hex');
 
-  // const root = document.getElementById('root');
-  // const changeBtn = document.getElementById('change-btn');
-  // const output = document.getElementById('output');
-  // const outputRGB = document.getElementById('outputRGB');
-  // const copyBtn = document.getElementById('copy-btn');
-  // const copyBtnRGB = document.getElementById('copy-btn-RGB');
 
   generateRandomColorBtn.addEventListener('click', handleGenerateRandomColorBtn);
+
+  colorModeHexInput.addEventListener('keyup', handleColorModeHexInput);
 
   // copyBtn.addEventListener('click', function () {
   //   navigator.clipboard.writeText(`#${output.value}`);
@@ -59,16 +56,7 @@ function main() {
   //   }
   // })
 
-  // output.addEventListener('keyup', function (e) {
-  //   const color = e.target.value;
-  //   if (color) {
-  //     output.value = color.toUpperCase();
-  //     if (isHexValid(color)) {
-  //       root.style.backgroundColor = `#${color}`;
-  //       outputRGB.value = hexToRGB(color);
-  //     }
-  //   }
-  // })
+  
 };
 
 
@@ -77,6 +65,17 @@ function main() {
 function handleGenerateRandomColorBtn() {
   const color = generateColorDecimal();
   updateColorCodeToDom(color);
+}
+
+function handleColorModeHexInput(e) {
+  const hexColor = e.target.value;
+  if (hexColor) {
+    this.value = hexColor.toUpperCase();
+    if (isHexValid(hexColor)) {
+      const color = hexToDecimalColors(hexColor);
+      updateColorCodeToDom(color);
+    }
+  }
 }
 
 
@@ -109,9 +108,9 @@ function updateColorCodeToDom(color) {
   const hexColor = generateHexColor(color);
   const rgbColor = generateRGBColor(color);
 
-  document.getElementById('color-display').style.backgroundColor = hexColor;
-  document.getElementById('color-mode-hex').value = hexColor;
-  document.getElementById('color-mode-rgb').value = rgbColor;
+  document.getElementById('color-display').style.backgroundColor = `#${hexColor}`;
+  document.getElementById('input-hex').value = hexColor;
+  document.getElementById('input-rgb').value = rgbColor;
   document.getElementById('color-slider-red').value = color.red;
   document.getElementById('color-slider-red-label').innerText = color.red;
   document.getElementById('color-slider-green').value = color.green;
@@ -155,7 +154,7 @@ function generateHexColor({ red, green, blue }) {
     return hex.length === 1 ? `0${hex}` : hex;
   }
 
-  return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase();
+  return `${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase();
 }
 
 
@@ -177,7 +176,7 @@ function generateRGBColor({ red, green, blue }) {
  * @param {string} hex 
  * @returns {object}
  */
-function hexToDecimalColor(hex) {
+function hexToDecimalColors(hex) {
   const red = parseInt(hex.slice(0, 2), 16);
   const green = parseInt(hex.slice(2, 4), 16);
   const blue = parseInt(hex.slice(4), 16);
