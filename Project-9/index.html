@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Change The Background Color</title>
+
+</head>
+<body>
+
+
+  <div class="container">
+
+    <!-- Display Section -->
+    <section class="section">
+      <div class="section-header">
+        <h3 class="section-title">Display Color</h3>
+        <button class="section-header-action">Random Color</button>
+      </div>
+      <div class="divider"></div>
+      <div class="color-display"></div>
+    </section>
+
+    <!-- Change & Copy Color -->
+    <section class="section">
+      <div class="section-header">
+        <h3 class="section-title">Change & Copy Color</h3>
+        <button class="section-header-action">Copy To Clipboard</button>
+      </div>
+      <div class="divider"></div>
+      <!-- Select Copy Mode Section Start Here -->
+      <div class="select-copy-mode">
+        <p class="lead">Select Copy Mode</p>
+        <div class="mode-radio-group">
+          <div class="mode-input-group">
+            <input type="radio" name="color-mode" id="color-mode-hex" checked>
+            <label for="color-mode-hex">Hex</label>
+          </div>
+          <div class="mode-input-group">
+            <input type="radio" name="color-mode" id="color-mode-rgb">
+            <label for="color-mode-rgb">RGB</label>
+          </div>
+        </div>
+      </div>
+      <!-- Select Copy Mode Section End Here -->
+
+
+      <!-- Selected Color Code Section Start Here -->
+      <div class="selected-color-code">
+        <div class="hex-input-group">
+          <label for="input-hex" class="lead">Hex</label>
+          <div class="icon-group">
+            <input type="text" name="" id="input-hex" class="text-input hex-input" value="dddeee" placeholder="#dddeee">
+            <div class="hex-icon">#</div>
+          </div>
+        </div>
+
+        <div class="rgb-input-group">
+          <label for="input-rgb" class="lead">RGB</label>
+          <input type="text" name="" id="input-rgb" class="text-input" value="rgb(221, 222, 238)" placeholder="rgb(221, 222, 238)" disabled>
+        </div>
+      </div>
+      <!-- Selected Color Code Section End Here -->
+
+      <!-- Color Slider Section Start Here -->
+      <div class="color-sliders">
+        <p class="lead">Adjust RGB Colors</p>
+        <div class="color-sliders-group">
+          <div>
+            <div class="slider-label-group">
+              <p>Red</p>
+              <p>221</p>
+            </div>
+            <input type="range" name="" id="color-slider-red" class="color-slider" min="0" max="255" value="221">
+          </div>
+
+          <div>
+            <div class="slider-label-group">
+              <p>Green</p>
+              <p>222</p>
+            </div>
+            <input type="range" name="" id="color-slider-green" class="color-slider" min="0" max="255" value="222">
+          </div>
+
+          <div>
+            <div class="slider-label-group">
+              <p>Blue</p>
+              <p>238</p>
+            </div>
+            <input type="range" name="" id="color-slider-blue" class="color-slider" min="0" max="255" value="238">
+          </div>
+        </div>
+
+      </div>
+      <!-- Color Slider Section End Here -->
+
+    </section>
+
+  </div>
+
+
+
+
+
+  <script src="./app.js"></script>
+  
+</body>
+</html>
