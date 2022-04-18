@@ -47,11 +47,19 @@ Section
   border-radius: .25rem;
   background: #ffa600;
   color: #ffffff;
+  border: 1px solid #ffa600;
   padding: 0.2rem 0.5rem;
   font-family: monospace, Arial, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  user-select: none !important;
+  transition: all 0.2s linear;
+}
+
+.section-header-action:hover{
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 
@@ -91,11 +99,20 @@ Select Copy Mode Section
   font-weight: bold;
   color: #333333;
   display: block;
+  user-select: none !important;
 }
 
 .mode-radio-group{
   display: flex;
   gap: 1rem;
+}
+
+#color-mode-hex,#color-mode-rgb,.mode-input-group label{
+  cursor: pointer;
+}
+
+label{
+  user-select: none;
 }
 
 /*============================
@@ -159,6 +176,10 @@ Color Slider Section
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
+}
+
+.slider-label-group p{
+  user-select: none !important;
 }
 
 .color-slider{
