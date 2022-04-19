@@ -50,13 +50,20 @@ const defaultPresetColors = [
   '#43A526',
   '#9395DC',
   '#7A28FB'
-]
+];
+
+
+const copySound = new Audio('./copy-sound.mp3');
 
 
 // onload handler.
 window.onload = () => {
   main();
   updateColorCodeToDom(defaultColor);
+
+  // Display Preset Colors
+  displayColorBoxes(document.getElementById('preset-colors'), defaultPresetColors);
+  
 };
 
 // Main or boot function, this function will take care of getting all the DOM references.
@@ -69,6 +76,7 @@ function main() {
   const colorSliderGreen = document.getElementById('color-slider-green');
   const colorSliderBlue = document.getElementById('color-slider-blue');
   const copyToClipboardBtn = document.getElementById('copy-to-clipboard');
+  const presetColorsParent = document.getElementById('preset-colors');
 
   // event listeners
   generateRandomColorBtn.addEventListener('click', handleGenerateRandomColorBtn);
@@ -80,6 +88,8 @@ function main() {
   colorSliderBlue.addEventListener('change', handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue));
   
   copyToClipboardBtn.addEventListener('click', handleCopyToClipboard);
+
+  presetColorsParent.addEventListener('click', handlePresetColorsParent);
   
 };
 
@@ -161,6 +171,16 @@ function handleCopyToClipboard() {
 }
 
 
+function handlePresetColorsParent(event) {
+  const child = event.target;
+  if (child.className === 'color-box') {
+    navigator.clipboard.writeText(child.getAttribute('data-color'));
+    copySound.volume = 0.5;
+    copySound.play()
+  }
+}
+
+
 // DOM functions
 
 /**
@@ -221,6 +241,36 @@ function getCheckedValueFromRadios(nodes) {
     }
   }
   return checkedValue;
+}
+
+
+
+/**
+ * Create a div element with class name color-box.
+ * @param {string} color 
+ * @returns {object}
+ */
+function generateColorBox(color) {
+  const div = document.createElement('div');
+  div.className = 'color-box';
+  div.style.backgroundColor = color;
+  div.setAttribute('data-color', color);
+
+  return div;
+}
+
+
+
+/**
+ * This function will create and append new color boxes to it's parent.
+ * @param {object} parent 
+ * @param {Array} colors 
+ */
+function displayColorBoxes(parent, colors) {
+  colors.forEach((color) => {
+    const colorBox = generateColorBox(color);
+    parent.appendChild(colorBox)
+  })
 }
 
 
