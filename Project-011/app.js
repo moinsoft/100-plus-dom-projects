@@ -19,32 +19,14 @@ const defaultPresetColors = [
   '#E6A699',
   '#50DC44',
   '#976031',
-  '#4CEAAD',
-  '#688A5D',
-  '#BB7DB3',
-  '#3E08B5',
-  '#438031',
-  '#AE30D7',
-  '#6CA8B8',
-  '#7F4A75',
-  '#D93E52',
-  '#189CBF',
-  '#A49761',
-  '#C8EE8F',
-  '#331A7C',
-  '#27A5E0',
-  '#A9929D',
-  '#BE2AAF',
   '#B49601',
   '#2C7A07',
   '#83F493',
   '#CFC941',
   '#F309DA',
-  '#423F3A',
   '#3DD5EA',
   '#FAD6BF',
   '#DD6F1A',
-  '#561499',
   '#BE10B5',
   '#184CF9',
   '#43A526',
@@ -52,6 +34,8 @@ const defaultPresetColors = [
   '#7A28FB'
 ];
 
+
+const customColors = [];
 
 const copySound = new Audio('./copy-sound.mp3');
 
@@ -76,7 +60,9 @@ function main() {
   const colorSliderGreen = document.getElementById('color-slider-green');
   const colorSliderBlue = document.getElementById('color-slider-blue');
   const copyToClipboardBtn = document.getElementById('copy-to-clipboard');
+  const saveToCustomBtn = document.getElementById('save-to-custom');
   const presetColorsParent = document.getElementById('preset-colors');
+  const customColorsParent = document.getElementById('custom-colors');
 
   // event listeners
   generateRandomColorBtn.addEventListener('click', handleGenerateRandomColorBtn);
@@ -91,6 +77,7 @@ function main() {
 
   presetColorsParent.addEventListener('click', handlePresetColorsParent);
   
+  saveToCustomBtn.addEventListener('click', handleSaveToCustomBtn(customColorsParent, colorModeHexInput));
 };
 
 
@@ -177,6 +164,16 @@ function handlePresetColorsParent(event) {
     navigator.clipboard.writeText(child.getAttribute('data-color'));
     copySound.volume = 0.5;
     copySound.play()
+  }
+}
+
+
+function handleSaveToCustomBtn(customColorsParent, inputHex) {
+
+  return function () {
+    customColors.push(`#${inputHex.value}`);
+    removeChildren(customColorsParent);
+    displayColorBoxes(customColorsParent, customColors);
   }
 }
 
@@ -273,6 +270,18 @@ function displayColorBoxes(parent, colors) {
   })
 }
 
+
+/**
+ * Remove all children from parent.
+ * @param {object} parent 
+ */
+function removeChildren(parent) {
+  let child = parent.lastElementChild;
+  while (child) {
+    parent.removeChild(child);
+    child = parent.lastElementChild;
+  }
+}
 
 // Utils
 
