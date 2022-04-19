@@ -78,6 +78,9 @@ function main() {
   presetColorsParent.addEventListener('click', handlePresetColorsParent);
   
   saveToCustomBtn.addEventListener('click', handleSaveToCustomBtn(customColorsParent, colorModeHexInput));
+  
+  customColorsParent.addEventListener('click', handlePresetColorsParent);
+
 };
 
 
