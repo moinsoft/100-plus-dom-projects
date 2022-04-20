@@ -35,7 +35,7 @@ const defaultPresetColors = [
 ];
 
 
-const customColors = [];
+let customColors = new Array(18);
 
 const copySound = new Audio('./copy-sound.mp3');
 
@@ -47,6 +47,13 @@ window.onload = () => {
 
   // Display Preset Colors
   displayColorBoxes(document.getElementById('preset-colors'), defaultPresetColors);
+
+  const customColorsString = localStorage.getItem('custom-colors');
+
+  if (customColorsString) {
+    customColors = JSON.parse(customColorsString);
+    displayColorBoxes(document.getElementById('custom-colors'), customColors);
+  }
   
 };
 
@@ -174,7 +181,21 @@ function handlePresetColorsParent(event) {
 function handleSaveToCustomBtn(customColorsParent, inputHex) {
 
   return function () {
-    customColors.push(`#${inputHex.value}`);
+    const color = `#${inputHex.value}`;
+
+    if (customColors.includes(color)) {
+      alert('Already Saved');
+      return;
+    };
+
+    customColors.unshift(color);
+
+    if (customColors.length > 18) {
+      customColors = customColors.slice(0, 18)
+    }
+
+    localStorage.setItem('custom-colors', JSON.stringify(customColors));
+
     removeChildren(customColorsParent);
     displayColorBoxes(customColorsParent, customColors);
   }
@@ -268,9 +289,11 @@ function generateColorBox(color) {
  */
 function displayColorBoxes(parent, colors) {
   colors.forEach((color) => {
-    const colorBox = generateColorBox(color);
-    parent.appendChild(colorBox)
-  })
+    if (isValidHex(color.slice(1))) {
+      const colorBox = generateColorBox(color);
+      parent.appendChild(colorBox);
+    }
+  });
 }
 
 
