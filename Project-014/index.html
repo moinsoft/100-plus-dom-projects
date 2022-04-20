@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Change The Background Color</title>
+
+</head>
+<body>
+
+
+  <div class="container">
+
+    <!-- Display Section -->
+    <section class="section">
+      <div class="section-header">
+        <h3 class="section-title">Display Color</h3>
+        <button class="section-header-action" id="generate-random-color">Random Color</button>
+      </div>
+      <div class="divider"></div>
+      <div class="color-display" id="color-display"></div>
+    </section>
+
+    <!-- Change & Copy Color -->
+    <section class="section">
+      <div class="section-header">
+        <h3 class="section-title">Change & Copy Color</h3>
+        <div class="section-header-action-group">
+          <button class="section-header-action" id="save-to-custom">Save</button>
+          <button class="section-header-action" id="copy-to-clipboard">Copy</button>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <!-- Select Copy Mode Section Start Here -->
+      <div class="select-copy-mode">
+        <p class="lead">Select Copy Mode</p>
+        <div class="mode-radio-group">
+          <div class="mode-input-group">
+            <input type="radio" name="color-mode" id="color-mode-hex" value="hex" checked>
+            <label for="color-mode-hex">Hex</label>
+          </div>
+          <div class="mode-input-group">
+            <input type="radio" name="color-mode" id="color-mode-rgb" value="rgb">
+            <label for="color-mode-rgb">RGB</label>
+          </div>
+        </div>
+      </div>
+      <!-- Select Copy Mode Section End Here -->
+
+
+      <!-- Selected Color Code Section Start Here -->
+      <div class="selected-color-code">
+        <div class="hex-input-group">
+          <label for="input-hex" class="lead">Hex</label>
+          <div class="icon-group">
+            <input type="text" name="" id="input-hex" class="text-input hex-input" placeholder="dddeee">
+            <div class="hex-icon">#</div>
+          </div>
+        </div>
+
+        <div class="rgb-input-group">
+          <label for="input-rgb" class="lead">RGB</label>
+          <input type="text" name="" id="input-rgb" class="text-input" placeholder="rgb(221, 222, 238)" disabled>
+        </div>
+      </div>
+      <!-- Selected Color Code Section End Here -->
+
+      <!-- Color Slider Section Start Here -->
+      <div class="color-sliders">
+        <p class="lead">Adjust RGB Colors</p>
+        <div class="color-sliders-group">
+          <div>
+            <div class="slider-label-group">
+              <p>Red</p>
+              <p id="color-slider-red-label">221</p>
+            </div>
+            <input type="range" name="" id="color-slider-red" class="color-slider" min="0" max="255" value="221">
+          </div>
+
+          <div>
+            <div class="slider-label-group">
+              <p>Green</p>
+              <p id="color-slider-green-label">222</p>
+            </div>
+            <input type="range" name="" id="color-slider-green" class="color-slider" min="0" max="255" value="222">
+          </div>
+
+          <div>
+            <div class="slider-label-group">
+              <p>Blue</p>
+              <p id="color-slider-blue-label">238</p>
+            </div>
+            <input type="range" name="" id="color-slider-blue" class="color-slider" min="0" max="255" value="238">
+          </div>
+        </div>
+
+      </div>
+      <!-- Color Slider Section End Here -->
+
+    </section>
+
+
+    <!-- Color Presets Section Start Here -->
+    <section class="section">
+
+      <div class="section-header">
+        <h3 class="section-title">Preset Colors</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="preset-colors" id="preset-colors"></div>
+
+    </section>
+    <!-- Color Presets Section End Here -->
+
+
+    <!-- Custom Color Section Start Here -->
+    <section class="section">
+
+      <div class="section-header">
+        <h3 class="section-title">Custom Colors</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="preset-colors" id="custom-colors"></div>
+
+    </section>
+    <!-- Custom Color Section End Here -->
+
+    <!-- Background Preferences Section Start Here -->
+    <section class="section">
+
+      <div class="section-header">
+        <h3 class="section-title">Background Preferences</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="background-preferences">
+
+        <div class="background-left-panel">
+          <p class="lead">Background Preview</p>
+          <div class="background-img" id="bg-preview"></div>
+
+          <div class="background-control">
+
+            <input type="file" name="" id="bg-file-input" class="file-input" accept="image/*">
+
+            <button class="background-control-btn" id="bg-file-input-btn">Upload</button>
+
+            <button class="background-control-btn" id="bg-file-delete-btn">Delete</button>
+
+          </div>
+        </div>
+
+        <div class="background-right-panel"></div>
+
+
+      </div>
+
+    </section>
+    <!-- Background Preferences Section End Here -->
+
+  </div>
+
+
+
+
+
+  <script src="./app.js"></script>
+  
+</body>
+</html>
