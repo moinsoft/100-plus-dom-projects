@@ -285,6 +285,10 @@ Background Controller Section
   margin-bottom: 1rem;
 }
 
+.select-group:last-child{
+  margin-bottom: 0;
+}
+
 .select-group .text-input{
   margin-top: .5rem;
 }
