@@ -82,5 +82,12 @@ window.onload = function () {
 };
 
 function main() {
+  const newQuoteBtn = document.getElementById('new-quote-btn');
+  const quoteBody = document.getElementById('quote-body');
 
+  newQuoteBtn.addEventListener('click', function () {
+    const index = Math.floor(Math.random() * defaultQuotes.length);
+    const quote = defaultQuotes[index];
+    quoteBody.innerText = quote;
+  })
 }
